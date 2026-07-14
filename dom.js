@@ -116,7 +116,7 @@ themeBtn.style.boxShadow = "0 4px 6px rgba(0,0,0,0.1)";
 // 13. Add the button to the page
 document.body.appendChild(themeBtn);
 
-// 4. Toggle Dark Mode when clicked
+// 14. Toggle Dark Mode when clicked
 themeBtn.addEventListener('click', () => {
     document.body.classList.toggle('dark-mode');
     
