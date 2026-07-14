@@ -1,4 +1,5 @@
 console.log("DOM script successfully loaded!");
+
 // 1. Select the elements we want to work with
 const articleTitle = document.querySelector('.title');
 const paragraphs = document.querySelectorAll('.content');
@@ -17,8 +18,8 @@ paragraphs.forEach(paragraph => {
     });
     paragraph.addEventListener('mouseleave', () => {
         paragraph.classList.remove('highlight');
-    });
-});
+    }); // Added missing closing bracket here
+}); // Added missing closing bracket here
 
 // 4. Handle form submission without reloading the page
 form.addEventListener('submit', (event) => {
@@ -32,17 +33,19 @@ form.addEventListener('submit', (event) => {
     } else {
         alert("Please fill out both fields!");
     }
-});// 1. Create a brand new button element
+});
+
+// 5. Create a brand new button element
 const newBtn = document.createElement('button');
 newBtn.textContent = "Add Paragraph";
 newBtn.style.marginTop = "10px";
 newBtn.style.display = "block"; // Put it on its own line
 
-// 2. Insert this button inside the <article> element
+// 6. Insert this button inside the <article> element
 const article = document.querySelector('article');
 article.appendChild(newBtn);
 
-// 3. Make the button actually add a paragraph when clicked
+// 7. Make the button actually add a paragraph when clicked
 newBtn.addEventListener('click', () => {
     const newParagraph = document.createElement('p');
     newParagraph.className = 'content';
@@ -50,5 +53,4 @@ newBtn.addEventListener('click', () => {
     
     // Append it to the article
     article.appendChild(newParagraph);
-});
-
+}); 
