@@ -32,4 +32,23 @@ form.addEventListener('submit', (event) => {
     } else {
         alert("Please fill out both fields!");
     }
+});// 1. Create a brand new button element
+const newBtn = document.createElement('button');
+newBtn.textContent = "Add Paragraph";
+newBtn.style.marginTop = "10px";
+newBtn.style.display = "block"; // Put it on its own line
+
+// 2. Insert this button inside the <article> element
+const article = document.querySelector('article');
+article.appendChild(newBtn);
+
+// 3. Make the button actually add a paragraph when clicked
+newBtn.addEventListener('click', () => {
+    const newParagraph = document.createElement('p');
+    newParagraph.className = 'content';
+    newParagraph.textContent = "✨ I am a shiny new paragraph created by JavaScript!";
+    
+    // Append it to the article
+    article.appendChild(newParagraph);
 });
+
