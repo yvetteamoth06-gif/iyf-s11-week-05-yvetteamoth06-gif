@@ -54,3 +54,29 @@ newBtn.addEventListener('click', () => {
     // Append it to the article
     article.appendChild(newParagraph);
 }); 
+// 8. Create a brand new "Remove" button element
+const removeBtn = document.createElement('button');
+removeBtn.textContent = "Remove Last Paragraph";
+removeBtn.style.marginTop = "10px";
+removeBtn.style.marginLeft = "10px"; // Put some space between the buttons
+removeBtn.style.backgroundColor = "#ff4d4d"; // Make it red so it looks like a delete button
+removeBtn.style.color = "white";
+removeBtn.style.border = "none";
+removeBtn.style.padding = "5px 10px";
+removeBtn.style.cursor = "pointer";
+
+// 9. Insert this button right next to the add button inside the <article>
+article.appendChild(removeBtn);
+
+// 10. Make the button actually remove the last paragraph when clicked
+removeBtn.addEventListener('click', () => {
+    const allParagraphs = article.querySelectorAll('.content');
+    
+    // Check if there are any paragraphs left to delete
+    if (allParagraphs.length > 0) {
+        const lastParagraph = allParagraphs[allParagraphs.length - 1];
+        lastParagraph.remove(); // This deletes the element from the DOM!
+    } else {
+        alert("No more paragraphs left to remove!");
+    }
+});
