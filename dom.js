@@ -143,7 +143,6 @@ const firstNavLink = document.querySelector("nav a");
 console.log(firstNavLink.parentElement);
 
 // Task 3: Select the article, then get its next sibling (section)
-const article = document.querySelector("article");
 
 console.log(article.nextElementSibling);
 
