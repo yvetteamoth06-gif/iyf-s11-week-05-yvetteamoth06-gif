@@ -131,3 +131,28 @@ themeBtn.addEventListener('click', () => {
         themeBtn.style.color = "#000";
     }
 });
+// Task 1: Select the header, then navigate to the nav inside it
+const header = document.querySelector("header");
+const nav = header.querySelector("nav");
+
+console.log(nav);
+
+// Task 2: Select the first nav-link, then get its parent li
+const firstNavLink = document.querySelector("nav a");
+
+console.log(firstNavLink.parentElement);
+
+// Task 3: Select the article, then get its next sibling (section)
+const article = document.querySelector("article");
+
+console.log(article.nextElementSibling);
+
+// Task 4: Select the ul, then get all its child li elements
+const ul = document.querySelector("ul");
+
+console.log(ul.children);
+
+// Task 5: Start from the footer and navigate up to the body
+const footer = document.querySelector("footer");
+
+console.log(footer.parentElement);
