@@ -83,8 +83,8 @@ console.log(pageHeader.querySelector("nav"));
 // Practice Task 2
 // Select the first nav-link, then get its parent li
 // ================================
-const firstNavLink = document.querySelector(".nav-link");
-console.log(firstNavLink.parentElement);
+const firstNavLink2 = document.querySelector(".nav-link");
+console.log(firstNavLink2.parentElement);
 
 // ================================
 // Practice Task 3
