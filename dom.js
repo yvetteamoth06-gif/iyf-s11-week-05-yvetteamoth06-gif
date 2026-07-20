@@ -139,7 +139,6 @@ newParagraph.textContent = "✨ I am a shiny new paragraph created by JavaScript
 newParagraph.className = "content highlight";
 
 // Add to article
-const article = document.querySelector("article");
 article.appendChild(newParagraph);
 // Remove the footer
 
