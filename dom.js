@@ -128,4 +128,46 @@ articleElement.innerHTML = `
 <h2>Updated Article</h2>
 <p>This article has been updated using JavaScript.</p>
 `;
+// ================================
+// Task 9.4 - Adding & Removing Elements
+// ================================
+
+// Exercise 1: Creating Elements
+
+const newParagraph = document.createElement("p");
+newParagraph.textContent = "✨ I am a shiny new paragraph created by JavaScript!";
+newParagraph.className = "content highlight";
+
+// Add to article
+const article = document.querySelector("article");
+article.appendChild(newParagraph);
+// Remove the footer
+
+const footer = document.querySelector("footer");
+footer.remove();
+// Clone the first navigation item
+
+const navItem = document.querySelector(".nav-link").parentElement;
+
+const clone = navItem.cloneNode(true);
+
+clone.querySelector("a").textContent = "Blog";
+
+document.querySelector(".nav-list").appendChild(clone);
+function addNavItem(text, href) {
+    const li = document.createElement("li");
+
+    const link = document.createElement("a");
+
+    link.textContent = text;
+    link.href = href;
+    link.className = "nav-link";
+
+    li.appendChild(link);
+
+    document.querySelector(".nav-list").appendChild(li);
+}
+
+addNavItem("Portfolio", "/portfolio");
+addNavItem("Services", "/services");
 
