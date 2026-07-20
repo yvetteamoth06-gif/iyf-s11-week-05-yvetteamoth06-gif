@@ -76,8 +76,8 @@ console.log(navLinks);
 // Practice Task 1
 // Select the header, then navigate to the nav inside it
 // ================================
-const header = document.querySelector("header");
-console.log(header.querySelector("nav"));
+const pageHeader = document.querySelector("header");
+console.log(pageHeader.querySelector("nav"));
 
 // ================================
 // Practice Task 2
