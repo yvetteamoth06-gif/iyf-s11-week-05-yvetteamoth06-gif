@@ -169,4 +169,19 @@ function addNavItem(text, href) {
 
 addNavItem("Portfolio", "/portfolio");
 addNavItem("Services", "/services");
+function addNavItem(text, href) {
+    const li = document.createElement("li");
+
+    const link = document.createElement("a");
+    link.textContent = text;
+    link.href = href;
+    link.className = "nav-link";
+
+    li.appendChild(link);
+
+    document.querySelector(".nav-list").appendChild(li);
+}
+
+addNavItem("Blog", "#");
+addNavItem("Portfolio", "#");
 
