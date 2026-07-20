@@ -184,4 +184,32 @@ function addNavItem(text, href) {
 
 addNavItem("Blog", "#");
 addNavItem("Portfolio", "#");
+// ================================
+// Task 10 - Event Listeners
+// ================================
+
+// Create a button
+const clickButton = document.createElement("button");
+clickButton.textContent = "Click Me";
+document.body.appendChild(clickButton);
+
+// Adding event listeners
+clickButton.addEventListener("click", function () {
+    console.log("Button clicked!");
+});
+
+// Arrow function
+clickButton.addEventListener("click", () => {
+    console.log("Clicked again!");
+});
+
+// Named function
+function handleClick() {
+    console.log("Handled!");
+}
+
+clickButton.addEventListener("click", handleClick);
+
+// Remove the named event listener
+clickButton.removeEventListener("click", handleClick);
 
