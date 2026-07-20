@@ -264,3 +264,216 @@ window.addEventListener("load", () => {
     console.log("Page loaded");
 });
 
+// ================================
+// Task - Counter Project
+// ================================
+
+// Create counter display
+let count = 0;
+
+const counterDisplay = document.createElement("h2");
+counterDisplay.textContent = count;
+document.body.appendChild(counterDisplay);
+
+// Create + button
+const increaseBtn = document.createElement("button");
+increaseBtn.textContent = "+";
+document.body.appendChild(increaseBtn);
+
+// Create - button
+const decreaseBtn = document.createElement("button");
+decreaseBtn.textContent = "-";
+document.body.appendChild(decreaseBtn);
+
+// Create Reset button
+const resetBtn = document.createElement("button");
+resetBtn.textContent = "Reset";
+document.body.appendChild(resetBtn);
+
+// Increase count
+increaseBtn.addEventListener("click", () => {
+    count++;
+    counterDisplay.textContent = count;
+});
+
+// Decrease count (cannot go below 0)
+decreaseBtn.addEventListener("click", () => {
+    if (count > 0) {
+        count--;
+        counterDisplay.textContent = count;
+    }
+});
+
+// Reset count
+resetBtn.addEventListener("click", () => {
+    count = 0;
+    counterDisplay.textContent = count;
+});
+// ================================
+// Task 10 - Event Object
+// ================================
+
+// Mouse click event
+document.addEventListener("click", function (event) {
+    console.log("Target:", event.target);
+    console.log("Current Target:", event.currentTarget);
+    console.log("Type:", event.type);
+    console.log("Position:", event.clientX, event.clientY);
+
+    // Prevent default action only for links
+    if (event.target.tagName === "A") {
+        event.preventDefault();
+    }
+});
+
+// Keyboard events
+document.addEventListener("keydown", function (event) {
+    console.log("Key:", event.key);
+    console.log("Code:", event.code);
+    console.log("Shift:", event.shiftKey);
+    console.log("Ctrl:", event.ctrlKey);
+    console.log("Alt:", event.altKey);
+});
+// ================================
+// Keyboard Shortcuts
+// ================================
+
+document.addEventListener("keydown", function (event) {
+
+    // Ctrl + S
+    if (event.ctrlKey && event.key === "s") {
+        event.preventDefault();
+        alert("Saved!");
+    }
+
+    // Escape
+    if (event.key === "Escape") {
+        document.getElementById("name").value = "";
+        document.getElementById("email").value = "";
+    }
+
+    // Ctrl + Enter
+    if (event.ctrlKey && event.key === "Enter") {
+        event.preventDefault();
+        document.getElementById("contact-form").requestSubmit();
+    }
+
+});
+// ================================
+// Event Bubbling Example
+// ================================
+
+const grandparent = document.getElementById("grandparent");
+const parent = document.getElementById("parent");
+const child = document.getElementById("child");
+
+grandparent.addEventListener("click", () => {
+    console.log("Grandparent clicked");
+});
+
+parent.addEventListener("click", () => {
+    console.log("Parent clicked");
+});
+
+child.addEventListener("click", () => {
+    console.log("Child clicked");
+});
+// ================================
+// Event Bubbling Example
+// ================================
+
+document.getElementById("grandparent").addEventListener("click", () => {
+    console.log("Grandparent clicked");
+});
+
+document.getElementById("parent").addEventListener("click", () => {
+    console.log("Parent clicked");
+});
+
+document.getElementById("child").addEventListener("click", () => {
+    console.log("Child clicked");
+});
+
+// Click on Child - what order do the logs appear?
+// Answer: Child → Parent → Grandparent (bubbling up)
+
+// ================================
+// Event Delegation
+// ================================
+
+// Function to handle clicks
+function handleClick(event) {
+    console.log("You clicked:", event.target.textContent);
+}
+
+// Delegate clicks to the parent <ul>
+document.querySelector("ul").addEventListener("click", function (event) {
+
+    // Check if a list item was clicked
+    if (event.target.matches("li")) {
+        handleClick(event);
+    }
+
+    // If the click was on the link inside the li,
+    // handle it as well.
+    if (event.target.matches("a")) {
+        console.log("You clicked link:", event.target.textContent);
+    }
+});
+// ================================
+// Form Validation
+// ================================
+
+const nameInput = document.getElementById("name");
+const emailInput = document.getElementById("email");
+
+// Real-time validation
+nameInput.addEventListener("input", function (event) {
+    const value = event.target.value;
+
+    if (value.length < 2) {
+        showError(nameInput, "Name must be at least 2 characters");
+    } else {
+        clearError(nameInput);
+    }
+});
+
+emailInput.addEventListener("input", function (event) {
+    const value = event.target.value;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!emailRegex.test(value)) {
+        showError(emailInput, "Please enter a valid email");
+    } else {
+        clearError(emailInput);
+    }
+});
+
+// Form submission
+form.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    const formData = new FormData(form);
+    const data = Object.fromEntries(formData);
+
+    console.log("Form data:", data);
+
+    showSuccess("Form submitted successfully!");
+    form.reset();
+});
+
+// Helper functions
+function showError(input, message) {
+    input.style.border = "2px solid red";
+    console.log(message);
+}
+
+function clearError(input) {
+    input.style.border = "";
+}
+
+function showSuccess(message) {
+    alert(message);
+}
+
+
