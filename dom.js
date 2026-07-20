@@ -106,3 +106,17 @@ console.log(ul.children);
 const footer = document.querySelector("footer");
 console.log(footer.parentElement);
 
+// ================================
+// Task 9.3 - Modifying Content
+// Exercise 1
+// ================================
+
+const heading = document.querySelector("h1");
+
+// Reading text
+console.log(heading.textContent);
+console.log(heading.innerText);
+
+// Modifying text
+heading.textContent = "New Title";
+
