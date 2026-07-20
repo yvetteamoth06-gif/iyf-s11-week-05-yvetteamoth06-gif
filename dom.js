@@ -118,5 +118,15 @@ console.log(heading.textContent);
 console.log(heading.innerText);
 
 // Modifying text
-heading.textContent = "New Title";
+heading.textContent = "New Title";// Task 9.3 - Modifying Content
+
+const heading = document.querySelector("h1");
+heading.textContent = "Welcome to My DOM Practice";
+
+const articleElement = document.querySelector("article");
+
+articleElement.innerHTML = `
+<h2>Updated Article</h2>
+<p>This article has been updated using JavaScript.</p>
+`;
 
