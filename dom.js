@@ -212,4 +212,55 @@ clickButton.addEventListener("click", handleClick);
 
 // Remove the named event listener
 clickButton.removeEventListener("click", handleClick);
+// ================================
+// Task 10 - Different Event Types
+// ================================
+
+// Mouse events
+clickButton.addEventListener("dblclick", () => {
+    console.log("Button double-clicked!");
+});
+
+clickButton.addEventListener("mouseenter", () => {
+    console.log("Mouse entered button");
+});
+
+clickButton.addEventListener("mouseleave", () => {
+    console.log("Mouse left button");
+});
+
+// Keyboard events
+const input = document.getElementById("name");
+
+input.addEventListener("keydown", () => {
+    console.log("Key pressed down");
+});
+
+input.addEventListener("keyup", () => {
+    console.log("Key released");
+});
+
+// Form event
+form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    console.log("Form submitted!");
+});
+
+// Input events
+input.addEventListener("focus", () => {
+    console.log("Input focused");
+});
+
+input.addEventListener("blur", () => {
+    console.log("Input lost focus");
+});
+
+input.addEventListener("input", () => {
+    console.log("Typing:", input.value);
+});
+
+// Window event
+window.addEventListener("load", () => {
+    console.log("Page loaded");
+});
 
